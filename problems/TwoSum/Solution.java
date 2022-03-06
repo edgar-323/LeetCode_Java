@@ -57,24 +57,6 @@ class Solution {
         throw new RuntimeException("Solution2 failed");
     }
     /********************************************************/
-    private static class Node {
-        private final int value;
-        private final int index;
-
-        Node(int value, int index) {
-            this.value = value;
-            this.index = index;
-        }
-
-        int getValue() {
-            return value;
-        }
-
-        int getIndex() {
-            return index;
-        }
-    }
-
     private static int[] Solution3(int[] nums, int target) {
         /*
          * TimeComplexity:  O(N*log(N))
@@ -125,6 +107,24 @@ class Solution {
         }
 
         throw new RuntimeException("Solution3 failed");
+    }
+
+    private static class Node {
+        private final int value;
+        private final int index;
+
+        Node(int value, int index) {
+            this.value = value;
+            this.index = index;
+        }
+
+        int getValue() {
+            return value;
+        }
+
+        int getIndex() {
+            return index;
+        }
     }
     /********************************************************/
 }
