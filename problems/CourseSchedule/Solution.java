@@ -1,3 +1,7 @@
+// NOTE: LeetCode does NOT automatically import `Optional`, so
+// we must import it ourselves.
+import java.util.Optional;
+
 class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
        return Solution1.canFinish(numCourses, prerequisites); 
@@ -16,7 +20,7 @@ class Solution {
         // Directed graph.
         int numCourses;
         List<List<Integer>> adjList;
-        List<Boolean> hasCycle;
+        List<Optional<Boolean>> hasCycle;
 
         static boolean canFinish(int numCourses, int[][] prerequisites) {
             // Initialze the graph that is the result of the prerequisites.
@@ -39,13 +43,13 @@ class Solution {
         }
 
         boolean nodeHasCycle(int node) {
-            if (hasCycle.get(node) != null) {
+            if (hasCycle.get(node).isPresent()) {
                 // We've already seen `node`.
-                return hasCycle.get(node);
+                return hasCycle.get(node).get();
             }
 
             // Assume `node` has a cycle (guilty before proven innocent).
-            hasCycle.get(node) = true;
+            hasCycle.set(node, Optional.of(true));
             for (int neighbor : adjList.get(node)) {
                 if (nodeHasCycle(neighbor)) {
                     // Direct `neighbor` has a cycle which means
@@ -54,9 +58,9 @@ class Solution {
                 }
             }
             // `node` has been cleared of all charges.
-            hasCycle.get(node) = false;
+            hasCycle.set(node, Optional.of(false));
 
-            return hasCycle.get(node);
+            return hasCycle.get(node).get();
         }
 
         Solution1(int _numCourses, int[][] prerequisites) {
@@ -66,9 +70,9 @@ class Solution {
             hasCycle = new ArrayList<>(numCourses);
             for (int i = 0; i < numCourses; i++) {
                 // initialize adjacency list of node `i`.
-                adjList.get(i) = new ArrayList<>();
+                adjList.add(new ArrayList<>());
                 // We initially don't know if node `i`  has a cycle or not.
-                hasCycle.get(i) = null;
+                hasCycle.add(Optional.empty());
             }
             for (int[] prereq : prerequisites) {
                 // You must take course `u` before you can take course `v`.
