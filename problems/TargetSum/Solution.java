@@ -5,8 +5,7 @@ class Solution {
 
     private static class Solution1 {
         static int findTargetSumWays(int[] nums, int target) {
-            // throw new RuntimeException("Unimplemented");
-            return -1;
+            throw new RuntimeException("Unimplemented");
         }
 
         Solution1() {}
