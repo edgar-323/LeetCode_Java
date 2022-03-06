@@ -31,7 +31,7 @@ Explanation: There are 4 nodes in the graph.
 ```
 
 **Example 2:**
-
+![alt text](graph.png)
 ```
 Input: adjList = [[]]
 Output: [[]]
