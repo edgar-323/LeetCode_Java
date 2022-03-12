@@ -18,6 +18,7 @@ class Exercise(object):
                 f'Validating LeetCode exercise: \"{self.title}\"')
         # LeetCode problem must be a non-empty, single-token,
         # alpha-numerical string.
+        assert type(self.title) is str, 'LeetCode exercise must be a string'
         assert self.title.isalnum(), 'LeetCode exercise must be alpha-numeric'
         # Ensure LeetCode exercise exists.
         self.file_utils.validate_dir_path(self.all_exercises_dir)

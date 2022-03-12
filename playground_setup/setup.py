@@ -3,15 +3,19 @@
 
 from argparse import ArgumentParser
 from exercise import Exercise
+from file_utils import FileUtils
 from logger import Logger
 from playground_builder import PlaygroundBuilder
 
 
-arg_parser = ArgumentParser(description=f'Setup {GITHUB_DIR}/Practice')
+HOME_DIR = FileUtils().get_home_dir()
+
+
+arg_parser = ArgumentParser(
+        description=f'Setup {HOME_DIR}/GitHub/playground/')
 arg_parser.add_argument(
         '--exercise',
         type=str,
-        default=None,
         help='Leetcode exercise title')
 
 
