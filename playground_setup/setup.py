@@ -21,7 +21,7 @@ arg_parser.add_argument(
 
 def log(msg):
     logger = Logger.get_logger()
-    logger.log(f'setup.py: {msg}')
+    logger.log(f'setup.py -> {msg}')
 
 
 def setup_playground(title=None):
