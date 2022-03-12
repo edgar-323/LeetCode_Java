@@ -19,15 +19,19 @@ arg_parser.add_argument(
         help='Leetcode exercise title')
 
 
-def setup_playground(title=None):
+def log(msg):
     logger = Logger.get_logger()
-    logger.log(f'Initializing Exercise module ...')
+    logger.log(f'setup.py: {msg}')
+
+
+def setup_playground(title=None):
+    log(f'Initializing Exercise module ...')
     exercise = Exercise(title=args.exercise)
-    logger.log(f'Initializing PlaygroundBuilder module ...')
+    log(f'Initializing PlaygroundBuilder module ...')
     builder = PlaygroundBuilder(exercise=exercise)
-    logger.log(f'Building playground ...')
+    log(f'Building playground ...')
     builder.build_playground()
-    logger.log('Operation successfully completed.')
+    log('Operation successfully completed.')
 
 
 if __name__ == '__main__':

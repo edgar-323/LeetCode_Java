@@ -23,16 +23,19 @@ class PlaygroundBuilder(object):
         self.tester_file = f'{self.playground_dir}/Tester.java'
         self.solution_file = f'{self.playground_dir}/Solution.java'
 
+    def log(self, msg):
+        self.logger.log(f'PlaygroundBuilder: {msg}')
+
     def build_playground(self):
         if not self.file_utils.is_dir(self.playground_dir):
-            self.logger.log(f'Creating dir: \"{self.playground_dir}\"')
+            self.log(f'Creating dir: \"{self.playground_dir}\"')
             self.file_utils.create_dir(self.playground_dir)
-        self.logger.log(f'Creating (or clearing) file: \"{self.tester_file}\"')
+        self.log(f'Creating (or clearing) file: \"{self.tester_file}\"')
         self.file_utils.create_file(self.tester_file)
-        self.logger.log(f'Appending PlaygroundBuilder.TESTER_CONTENT to: \"{self.tester_file}\"')
+        self.log(f'Appending PlaygroundBuilder.TESTER_CONTENT to: \"{self.tester_file}\"')
         self.file_utils.append_to_file(
                 self.tester_file, PlaygroundBuilder.TESTER_CONTENT)
-        self.logger.log(f'Copying:\nsrc={self.exercise.get_exercise()}\ndst={self.solution_file}\n')
+        self.log(f'Copying:\nsrc={self.exercise.get_exercise()}\ndst={self.solution_file}\n')
         self.file_utils.copy_file(
                 src=self.exercise.get_exercise(),
                 dst=self.solution_file)

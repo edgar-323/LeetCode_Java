@@ -14,8 +14,7 @@ class Exercise(object):
         self.validate_exercise()
 
     def validate_exercise(self):
-        self.logger.log(
-                f'Validating LeetCode exercise: \"{self.title}\"')
+        self.log(f'Validating LeetCode exercise: \"{self.title}\"')
         # LeetCode problem must be a non-empty, single-token,
         # alpha-numerical string.
         assert type(self.title) is str, 'LeetCode exercise must be a string'
@@ -24,8 +23,10 @@ class Exercise(object):
         self.file_utils.validate_dir_path(self.all_exercises_dir)
         self.file_utils.validate_dir_path(self.exercise_dir)
         self.file_utils.validate_file_path(self.exercise)
-        self.logger.log(
-                f'Finished validating: \"{self.title}\".\n')
+        self.log(f'Finished validating: \"{self.title}\".\n')
+
+    def log(self, msg):
+        self.logger.log(f'Exercise: {msg}')
 
     def get_title(self):
         return self.title
