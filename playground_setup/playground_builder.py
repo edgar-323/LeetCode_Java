@@ -77,6 +77,7 @@ class PlaygroundBuilder(object):
         return (
             f'package playground.{self.exercise.get_title().lower()};\n'
             '\n'
+            '\n'
             'public class Tester {\n'
             '     public static void main(String[] unusedArgs) {\n'
             '         System.out.println(\"Initializing Solution module...\");\n'
@@ -84,8 +85,7 @@ class PlaygroundBuilder(object):
             '         //\n'
             '         // TODO:\n'
             '         //    1. Add necessary Java imports to Solution.java.\n'
-            '         //    2. Make Solution.class public and create public default constructor.\n'
-            '         //    3. Configure tests below.\n'
+            '         //    2. Configure tests below.\n'
             '         //\n'
             '         System.out.println(\"Testing complete.\");\n'
             '     }\n'
