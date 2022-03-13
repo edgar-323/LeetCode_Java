@@ -41,19 +41,18 @@ class FileUtils:
         with open(file_path, 'w+') as fh:
             fh.truncate(0)
 
-    def create_dir(self, dir_path):
+    def create_dir(self, dir_path=None):
         assert type(dir_path) is str, 'Dir must be a string'
         assert len(dir_path) > 0, 'Dir must be non-emtpy'
         os.mkdir(dir_path)
 
     def copy_file(self, src=None, dst=None):
-        self.validate_file_path(src)
+        self.validate_file_path(file_path=src)
         shutil.copyfile(src=src, dst=dst)
 
     def append_to_file(self, file_path=None, content=None):
-        self.validate_file_path(file_path)
-        assert content is not None
-        assert type(content) is str
-        assert len(content) > 0
+        assert type(content) is str, 'Content must be a string'
+        assert content, 'Content must a non-empty string'
+        self.validate_file_path(file_path=file_path)
         with open(file_path, 'a+') as fh:
             fh.write(f'{content}\n')
