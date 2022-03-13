@@ -9,6 +9,7 @@ from playground_builder import PlaygroundBuilder
 
 
 HOME_DIR = FileUtils().get_home_dir()
+LOGGING_PREFIX = 'setup.py'
 
 
 arg_parser = ArgumentParser(
@@ -21,12 +22,13 @@ arg_parser.add_argument(
 
 def log(msg):
     logger = Logger.get_logger()
-    logger.log(f'setup.py -> {msg}')
+    logger.log_with_prefix(LOGGING_PREFIX, msg)
 
 
 def setup_playground(title=None):
     log(f'Initializing Exercise module ...')
     exercise = Exercise(title=args.exercise)
+    exercise.validate()
     log(f'Initializing PlaygroundBuilder module ...')
     builder = PlaygroundBuilder(exercise=exercise)
     log(f'Building playground ...')

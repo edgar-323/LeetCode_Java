@@ -7,6 +7,8 @@ import sys
 
 class PlaygroundBuilder(object):
 
+    LOGGING_PREFIX = 'PlaygroundBuilder'
+
     TESTER_CONTENT = (
             'package playground;\n'
             '\n'
@@ -21,24 +23,40 @@ class PlaygroundBuilder(object):
         self.exercise = exercise
         self.file_utils = FileUtils()
         self.logger = Logger.get_logger()
-        self.playground_dir = f'{self.file_utils.get_home_dir()}/GitHub/playground'
-        self.tester_file = f'{self.playground_dir}/Tester.java'
-        self.solution_file = f'{self.playground_dir}/Solution.java'
+        self.playground_dir = (
+                f'{self.file_utils.get_home_dir()}/'
+                'GitHub/playground')
+        self.tester_file = (
+                f'{self.playground_dir}/Tester.java')
+        self.solution_file = (
+                f'{self.playground_dir}/'
+                f'{self.exercise.get_title()}.java')
 
-    def log(self, msg):
-        self.logger.log(f'PlaygroundBuilder -> {msg}')
+    def log(self, msg=None):
+        self.logger.log_with_prefix(
+                PlaygroundBuilder.LOGGING_PREFIX, msg)
 
     def build_playground(self):
         try:
+            # Create playground (if it doesn't exist).
             if not self.file_utils.is_dir(self.playground_dir):
-                self.log(f'Creating dir: \"{self.playground_dir}\"')
+                self.log('Creating dir: '
+                         f'{self.playground_dir}')
                 self.file_utils.create_dir(self.playground_dir)
-            self.log(f'Creating (or clearing) file: \"{self.tester_file}\"')
+            # Create/clear Tester.java.
+            self.log('Creating (or clearing) file: '
+                     f'{self.tester_file}')
             self.file_utils.create_file(self.tester_file)
-            self.log(f'Appending PlaygroundBuilder.TESTER_CONTENT to: \"{self.tester_file}\"')
+            # Fill Tester.java with base info.
+            self.log('Appending PlaygroundBuilder.TESTER_CONTENT to: '
+                     f'{self.tester_file}')
             self.file_utils.append_to_file(
-                    self.tester_file, PlaygroundBuilder.TESTER_CONTENT)
-            self.log(f'Copying:\nsrc={self.exercise.get_exercise()}\ndst={self.solution_file}\n')
+                    self.tester_file,
+                    PlaygroundBuilder.TESTER_CONTENT)
+            # Copy LeetCode problem to playground dir.
+            self.log('Copying:\n'
+                     f'src={self.exercise.get_exercise()}\n'
+                     f'dst={self.solution_file}\n')
             self.file_utils.copy_file(
                     src=self.exercise.get_exercise(),
                     dst=self.solution_file)

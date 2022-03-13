@@ -11,12 +11,25 @@ class Logger(object):
 
     def __init__(self):
         self.file_utils = FileUtils()
-        self.log_file = f'{self.file_utils.get_home_dir()}/GitHub/playground_setup/job.log'
+        self.log_file = (
+                f'{self.file_utils.get_home_dir()}/'
+                'GitHub/playground_setup/job.log')
         self.file_utils.create_file(self.log_file)
 
     def log(self, msg):
         self.file_utils.append_to_file(self.log_file, msg)
         return self
+
+    def log_with_prefix(self, prefix, msg):
+        assert type(prefix) is str, (
+                'Log message prefix must be a string')
+        assert prefix, (
+                'Log message prefix must be a non-empty string')
+        assert type(msg) is str, (
+                'Log message must be a string')
+        assert msg, (
+                'Log message must be non-empty string')
+        return self.log(f'{prefix} -> {msg}')
 
     def get_logger():
         if Logger.__LOGGER__ is None:
