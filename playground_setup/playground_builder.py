@@ -30,12 +30,11 @@ class PlaygroundBuilder(object):
                 'GitHub/playground')
         self.title_dir = (
                 f'{self.playground_dir}/'
-                f'{self.exercise.get_title().toLowerCase()}')
+                f'{self.exercise.get_title().lower()}')
         self.tester_file = (
                 f'{self.title_dir}/Tester.java')
         self.solution_file = (
-                f'{self.title_dir}/'
-                f'{self.exercise.get_title()}.java')
+                f'{self.title_dir}/Solution.java')
 
     def log(self, msg=None):
         self.logger.log_with_prefix(
@@ -76,7 +75,7 @@ class PlaygroundBuilder(object):
 
     def get_tester_file_content(self):
         return (
-            f'package playground.{self.exercise.get_title().toLowerCase()};\n'
+            f'package playground.{self.exercise.get_title().lower()};\n'
             '\n'
             'public class Tester {\n'
             '     public static void main(String[] unusedArgs) {\n'

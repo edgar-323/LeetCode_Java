@@ -1,14 +1,11 @@
-package playground;
+package playground.expressionaddoperators;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.lang.String;
 import java.lang.Character;
 
-
-public class Solution {
-    public Solution() {}
-
+class Solution {
     public List<String> addOperators(String num, int target) {
         return Solution1.addOperators(num, target);
     }
