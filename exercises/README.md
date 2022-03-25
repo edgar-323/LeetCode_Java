@@ -6,5 +6,5 @@ Individual problems will be hosted in this directory.
 
 **Outstanding debt:**
 * [**`ExpressionAddOperators`**](./ExpressionAddOperators/)
-* [`MaximumFrequencyStack`](./MaximumFrequencyStack/)
-* [`BinaryTreeMaximumPathSum`](./BinaryTreeMaximumPathSum/)
+* [**`MaximumFrequencyStack`**](./MaximumFrequencyStack/)
+* [**`BinaryTreeMaximumPathSum`**](./BinaryTreeMaximumPathSum/)
