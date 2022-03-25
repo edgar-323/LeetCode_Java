@@ -6,4 +6,4 @@ Individual problems will be hosted in this directory.
 
 * `ExpressionAddOperators`
 * `MaximumFrequencyStack`
-* `BinaryTreeMaximumPathSum`
+* [`BinaryTreeMaximumPathSum`](./BinaryTreeMaximumPathSum/)
