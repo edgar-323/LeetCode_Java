@@ -2,7 +2,7 @@
 
 Individual problems will be hosted in this directory.
 
-## Unsolved Exercises
+# Unsolved Exercises
 
 * [`ExpressionAddOperators`](./ExpressionAddOperators/)
 * [`MaximumFrequencyStack`](./MaximumFrequencyStack/)
