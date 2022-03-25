@@ -4,6 +4,6 @@ Individual problems will be hosted in this directory.
 
 ## Unsolved Exercises
 
-* `ExpressionAddOperators`
-* `MaximumFrequencyStack`
+* [`ExpressionAddOperators`](./ExpressionAddOperators/)
+* [`MaximumFrequencyStack`](./MaximumFrequencyStack/)
 * [`BinaryTreeMaximumPathSum`](./BinaryTreeMaximumPathSum/)
