@@ -7,6 +7,7 @@ The test cases are generated so that the answer fits in a 32-bit integer.
  
 
 **Example 1:**
+
 ![alt text](sample_11_1816.png)
 ```
 Input: houses = [1,4,8,10,20], k = 3
@@ -16,6 +17,7 @@ Minimum total distance from each houses to nearest mailboxes is |3-1| + |4-3| + 
 ```
 
 **Example 2:**
+
 ![alt text](sample_2_1816.png)
 ```
 Input: houses = [2,3,5,12,18], k = 2
