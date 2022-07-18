@@ -18,7 +18,7 @@ Minimum total distance from each houses to nearest mailboxes is |3-1| + |4-3| + 
 
 **Example 2:**
 
-![alt text](sample_2_1816.png)
+![alt text](sample_2_1816.png "Title")
 ```
 Input: houses = [2,3,5,12,18], k = 2
 Output: 9
