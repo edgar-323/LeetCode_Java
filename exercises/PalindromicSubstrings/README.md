@@ -1,6 +1,6 @@
 647. Palindromic Substrings
 
-<span style="color:blue">some *Medium* text</span>
+**Difficulty Level: MEDIUM**
 
 Given a string `s`, return the number of palindromic substrings in it.
 
