@@ -1,7 +1,4 @@
 class Solution {
-    private static final char ANY_CHAR = '?';
-    private static final char WILDCARD = '*';
-
     public boolean isMatch(String s, String p) {
         return Solution1.isMatch(s, p);
     }
@@ -38,9 +35,9 @@ class Solution {
                 matches = false; // This should be: i == s.length(), but we already know that's false.
             } else if (p.charAt(j) == WILDCARD) {
                 matches =
-                    solve(i+1, j)  // Match s[i] and keep matching w/ current wildcard.
-                    || solve(i+1, j+1)  // Match s[i] but stop matching w/ current wildcard.
-                    || solve(i, j+1);  // Don't match s[i] and stop matching w/ current wildcard.
+                    solve(i+1, j)  // Consume s[i] and keep matching with wildcard.
+                    || solve(i+1, j+1)  // Consume s[i] but stop matching with wildcard.
+                    || solve(i, j+1);  // Don't consume s[i] and stop matching with wildcard.
             } else {
                 // This will only be true if p[j] ==  '?' or if s[i] == p[j] and the rest of the
                 // values also match.
