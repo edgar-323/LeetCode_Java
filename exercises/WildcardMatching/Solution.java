@@ -3,6 +3,14 @@ class Solution {
         return Solution1.isMatch(s, p);
     }
 
+    /**
+     * TimeComplexity:  O(N * M)
+     * SpaceComplexity: O(N * M)
+     *
+     * Where:
+     *      N = s.length()
+     *      M = p.length()
+     */
     private static class Solution1 {
         private static final char ANY_CHAR = '?';
         private static final char WILDCARD = '*';
@@ -39,7 +47,7 @@ class Solution {
                     || solve(i+1, j+1)  // Consume s[i] but stop matching with wildcard.
                     || solve(i, j+1);  // Don't consume s[i] and stop matching with wildcard.
             } else {
-                // This will only be true if p[j] ==  '?' or if s[i] == p[j] and the rest of the
+                // This will only be true if p[j] == '?' or if s[i] == p[j] and the rest of the
                 // values also match.
                 matches =
                     (p.charAt(j) == ANY_CHAR || s.charAt(i) == p.charAt(j))
