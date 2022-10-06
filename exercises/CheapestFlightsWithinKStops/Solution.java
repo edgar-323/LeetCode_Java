@@ -20,7 +20,19 @@ class Solution {
         }
     }
 
+    /**
+     * TimeComplexity:  O(N^2 * F)
+     * SpaceComplexity: O(N * (N + K))
+     *
+     * Where:
+     *      N = number of airports
+     *      F = number of possible airport-to-airport flights {i.e., size(flights)}
+     *      K = Number of possible stops.
+     */
     private static class Solution1 {
+
+        private static final int INVALID_COST = -1;
+
         private int N;
         private int K;
         private int src;
@@ -33,27 +45,38 @@ class Solution {
         }
 
         int solve() {
+            // Initial state is to start from src city with the ability to make K pit stops.
             return solve(src, K);
         }
 
         int solve(int currCity, int k) {
             if (currCity == dst) {
+                // Arrived to destination city. The remainder cost is zero.
                 return 0;
             }
-            if (k == 0) {
-                return -1;
+            if (k == -1) {
+                // This is not the destination city but we cannt make any more pit stops along
+                // the way. Thus, arriving to destination city from this state is impossible.
+                return INVALID_COST;
             }
             if (cacheHit(currCity, k)) {
                 return getCacheValue(currCity, k);
             }
-            int minCost = -1;
+            // Go through all adjacent cities and see if we can reach the destination city
+            // along this neigboring city. If so, pick the one with the minimum cost.
+            int minCost = INVALID_COST;
             for (FlightTo flightTo : adjList.get(currCity)) {
                 int cost = solve(flightTo.getDst(), k - 1);
-                if (cost == -1) {
+                if (cost == INVALID_COST) {
+                    // We were not able to arrive at destination city from this neighbor.
                     continue;
                 }
+                // There is a path to destination city along this neigbor; let's also add the cost
+                // to travel to this neighbor to begin with.
                 cost += flightTo.getCost();
-                minCost = (minCost == -1) ? cost : Math.min(minCost, cost);
+                // If our min-cost was not set, then choose this as the new minCost; otherwise
+                // use the min() function to see if we can improve minCost.
+                minCost = (minCost == INVALID_COST) ? cost : Math.min(minCost, cost);
             }
             return setCacheValue(currCity, k, minCost);
         }
@@ -68,11 +91,11 @@ class Solution {
             this.src = src;
             this.dst = dst;
 
-            initAdjList(flights);
-            initCache();
+            initializeAdjList(flights);
+            initializeCache();
         }
 
-        private void initAdjList(int[][] flights) {
+        private void initializeAdjList(int[][] flights) {
             adjList = new ArrayList<>(N);
             for (int i = 0; i < N; i++) {
                 adjList.add(new ArrayList<>());
@@ -85,7 +108,7 @@ class Solution {
             }
         }
 
-        private void initCache() {
+        private void initializeCache() {
             cache = new ArrayList<>(N);
             for (int i = 0; i < N; i++) {
                 cache.add(new ArrayList<>(K+1));
@@ -104,7 +127,8 @@ class Solution {
         }
 
         private int setCacheValue(int i, int j, int v) {
-            return cache.get(i).set(j, v);
+            cache.get(i).set(j, v);
+            return v;
         }
     }
 }
