@@ -50,7 +50,7 @@ class Solution {
             List<List<String>> results = new ArrayList<>();
             for (String palindrome : palindromes[i]) {
                 for (List<String> partition : solve(i + palindrome.length())) {
-                    results.add(newDeepCopy(palindrome, partition));
+                    results.add(newCopy(palindrome, partition));
                 }
             }
 
@@ -58,7 +58,7 @@ class Solution {
             return results;
         }
 
-        List<String> newDeepCopy(String palindrome, List<String> partition) {
+        List<String> newCopy(String palindrome, List<String> partition) {
             List<String> newPartition = new ArrayList<>(1 + partition.size());
             newPartition.add(palindrome);
             newPartition.addAll(partition);
