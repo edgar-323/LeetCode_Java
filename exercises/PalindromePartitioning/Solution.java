@@ -30,7 +30,6 @@ class Solution {
         //      convenient that LinkedList<T> implements the
         //      interface List<T>.
 
-        private final String s;
         private final List<String>[] palindromes;
         private final Map<Integer, List<List<String>>> cache;
 
@@ -77,7 +76,6 @@ class Solution {
          *      SpaceComplexity: O(N^2 + N_Choose_2) ==> O(N^2)
          */
         Solution1(String s) {
-            this.s = s;
             int N = s.length();
 
             // In the base case (i == N), we will return a list of
