@@ -29,7 +29,7 @@ class Solution {
          * SpaceComplexity: O(1)
          *
          * Where:
-         *      W = word.length()
+         *      W = word.length() // This is capped by MAX_WORD_LEN.
          *      L = # of words that have length W+1.
          */
         int solve(String word) {
