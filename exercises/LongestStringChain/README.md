@@ -45,7 +45,7 @@ Explanation: The trivial word chain ["abcd"] is one of the longest word chains.
 * `words[i]` only consists of lowercase English letters.
 
 **Hint#1:**
-Instead of adding a character, try deleting a character to form a chain in reverse.
+* Instead of adding a character, try deleting a character to form a chain in reverse.
 
 **Hint#2:**
-For each word in order of length, for each word2 which is word with one character removed, length[word2] = max(length[word2], length[word] + 1).
+* For each word in order of length, for each word2 which is word with one character removed, length[word2] = max(length[word2], length[word] + 1).
