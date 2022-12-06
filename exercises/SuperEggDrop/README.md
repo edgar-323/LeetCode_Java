@@ -11,7 +11,7 @@ Return *the **minimum number of moves** that you need to determine **with certai
 
  
 
-**Example 1:**
+## **Example 1:**
 ```
 Input: k = 1, n = 2
 Output: 2
