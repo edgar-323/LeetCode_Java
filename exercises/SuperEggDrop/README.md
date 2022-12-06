@@ -11,7 +11,7 @@ Return *the **minimum number of moves** that you need to determine **with certai
 
  
 
-## **Example 1:**
+### **Example 1:**
 ```
 Input: k = 1, n = 2
 Output: 2
@@ -23,21 +23,21 @@ Hence, we need at minimum 2 moves to determine with certainty what the value of 
 ```
 
 
-**Example 2:**
+### **Example 2:**
 ```
 Input: k = 2, n = 6
 Output: 3
 ```
 
 
-**Example 3:**
+### **Example 3:**
 ```
 Input: k = 3, n = 14
 Output: 4
 ```
  
 
-**Constraints:**
+### **Constraints:**
 
 * `1 <= k <= 100`
 * `1 <= n <= 10^4`
