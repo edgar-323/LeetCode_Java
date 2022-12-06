@@ -19,7 +19,7 @@ class FreqStack {
         private int maxFrequency;
         private int pushTime;
         Map<Integer, Node> values;
-        Map<Integer, TreeSet<Node>> frequencyBuckets;
+        Map<Integer, SortedSet<Node>> frequencyBuckets;
 
         NodeManager() {
             maxFrequency = 0;
