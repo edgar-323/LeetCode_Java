@@ -14,7 +14,7 @@ Explanation: One camera is enough to monitor all nodes if placed as shown.
 ```
 
 ### **Example 2:**
-![alt text](bst_cameras_01.png)
+![alt text](bst_cameras_02.png)
 ```
 Input: root = [0,0,null,0,null,0,null,null,0]
 Output: 2
