@@ -19,12 +19,54 @@ class Solution {
     }
 
     static class Solution1 {
+        /**
+         * This is a greedy bottom-up approach!
+         * This strategy will only install a camera in a node if at least one of
+         * its child nodes are not covered.
+         */
+
+        enum NodeState { HAS_CAMERA, COVERED, NEEDS_COVERAGE };
+
+        private int minCamerasNeeded;
+        private final TreeNode root;
 
         int solve() {
-            throw new RuntimeException("NOT_IMPLEMENTED");
+            minCamerasNeeded = 0;
+
+            NodeState rootState = solve(root);
+
+            if (rootState == NodeState.NEEDS_COVERAGE) {
+                minCamerasNeeded++;
+            }
+
+            return minCamerasNeeded;
         }
 
-        Solution1(TreeNode root) {}
+        NodeState solve(TreeNode node) {
+            if (node == null) {
+                return NodeState.COVERED;
+            }
+
+            NodeState leftChildState = solve(node.left);
+            NodeState rightChildState = solve(node.right);
+
+            if (leftChildState == NodeState.NEEDS_COVERAGE
+                    || rightChildState == NodeState.NEEDS_COVERAGE) {
+                ++minCamerasNeeded;
+                return NodeState.HAS_CAMERA;
+            }
+
+            if (leftChildState == NodeState.HAS_CAMERA
+                    || rightChildState == NodeState.HAS_CAMERA) {
+                return NodeState.COVERED;
+            }
+
+            return NodeState.NEEDS_COVERAGE;
+        }
+
+        Solution1(TreeNode root) {
+            this.root = root;
+        }
 
         static Solution1 newSolver(TreeNode root) { return new Solution1(root); }
     }
