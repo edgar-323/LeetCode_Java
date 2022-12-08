@@ -23,6 +23,12 @@ class Solution {
          * This is a greedy bottom-up approach!
          * This strategy will only install a camera in a node if at least one of
          * its child nodes are not covered.
+         * Furthermore, if at least one of its children has a camera installed, then
+         * it will assume that it is now covered and won't bother installing a camera.
+         * If none of the above assumptions are true, then it will ask its parent node
+         * to install a camera so as to ensure coverage.
+         *
+         * Why is this (greedy!) approach optimal?!
          */
 
         enum NodeState { HAS_CAMERA, COVERED, NEEDS_COVERAGE };
