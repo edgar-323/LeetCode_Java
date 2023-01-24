@@ -1,6 +1,6 @@
 # 2025. Maximum Number of Ways to Partition an Array
 
-** DIFFICULTY: HARD **
+**DIFFICULTY: HARD**
 
 
 You are given a **0-indexed** integer array `nums` of length `n`. The number of ways to **partition** `nums` is the number of `pivot` indices that satisfy both conditions:
