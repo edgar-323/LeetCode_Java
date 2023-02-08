@@ -28,3 +28,10 @@ The maximum working time is 11.
 ## Constraints:
 * `1 <= k <= jobs.length <= 12`
 * `1 <= jobs[i] <= 10^7`
+
+### Related Topics:
+* Array
+* Dynamic Programming
+* Backtracking
+* Bit Manipulation
+* Bitmask
