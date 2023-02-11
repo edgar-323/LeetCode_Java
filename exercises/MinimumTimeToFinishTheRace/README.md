@@ -4,7 +4,7 @@
 
 You are given a **0-indexed** 2D integer array `tires` where `tires[i] = [f_i, r_i]` indicates that the `i-th` tire can finish its `x-th` successive lap in `f_i * r_i^(x-1)` seconds.
 
-* For example, if `f_i = 3` and `r_i = 2`, then the tire would finish its `1st` lap in `3` seconds, its `2nd` lap in `3 * 2 = 6` seconds, its `3rd` lap in `3 * 22 = 12` seconds, etc.
+* For example, if `f_i = 3` and `r_i = 2`, then the tire would finish its `1st` lap in `3` seconds, its `2nd` lap in `3 * 2 = 6` seconds, its `3rd` lap in `3 * 2^2 = 12` seconds, etc.
 
 You are also given an integer `changeTime` and an integer `numLaps`.
 
